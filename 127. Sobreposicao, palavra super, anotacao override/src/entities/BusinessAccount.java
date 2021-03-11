@@ -9,7 +9,7 @@ public class BusinessAccount extends Account {
 	}
 
 	public BusinessAccount(Integer number, String holder, Double balance, Double loanLimit) {
-		super(number, holder, balance); 
+		super(number, holder, balance); // Permite herdar os atributos da super classe (account)
 		this.loanLimit = loanLimit;
 	}
 
@@ -25,11 +25,5 @@ public class BusinessAccount extends Account {
 		if(amount <= loanLimit) {
 			balance += amount - 10.0;
 		}
-	}
-	
-	@Override
-	public void withdraw(double amount) {
-		super.withdraw(amount);
-		balance -= 2.0;
 	}
 }
