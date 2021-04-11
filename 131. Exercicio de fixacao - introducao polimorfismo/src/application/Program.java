@@ -14,7 +14,7 @@ import model.entities.UsedProduct;
 
 public class Program {
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -46,9 +46,12 @@ public class Program {
 			}
 			else {
 				System.out.print("Manufacture Date: ");
-				Date date = sdf.parse(input.next());
-				
-				list.add(new UsedProduct(name, price, date));
+				try {
+					Date date = sdf.parse(input.next());
+					list.add(new UsedProduct(name, price, date));
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		
